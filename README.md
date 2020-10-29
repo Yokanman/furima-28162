@@ -1,24 +1,55 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column        | Type   | Options     |
+| --------------| ------ | ----------- |
+| nickname      | string | null: false |
+| email_address | string | null: false |
+| password      | string | null: false |
+| first_name    | string | null: false |
+| family_name   | string | null: false |
+| birth_day     | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :buyers
+- has_many :sell_items
 
-* Configuration
+## buyers テーブル
 
-* Database creation
+| Column        | Type    | Options     |
+| --------------| ------- | ----------- |
+| postal_code   | string  | null: false |
+| prefecture    | integer | null: false |
+| city          | string  | null: false |
+| house_number  | string  | null: false |
+| building      | string  |             |
+| phone_number  | integer | null: false |
+| user_id       | integer | null: false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :users
+- has_one    :sell_items
 
-* Services (job queues, cache servers, search engines, etc.)
+## sell_items テーブル
 
-* Deployment instructions
+| Column           | Type    | Options     |
+| -----------------| ------- | ----------- |
+| image            | string  | null: false |
+| item_name        | string  | null: false |
+| item_description | string  | null: false |
+| category         | integer | null: false |
+| item_condition   | integer | null: false |
+| shipping_charger | integer | null: false |
+| shipping_from    | integer | null: false |
+| days_to_shipping | integer | null: false |
+| value            | integer | null: false |
+| sale_condition   | integer | null: false |
+| user_id          | integer | null: false |
 
-* ...
+### Association
+
+- belongs_to :users
+- has_one    :buyers
