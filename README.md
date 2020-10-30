@@ -4,8 +4,8 @@
 
 | Column        | Type   | Options     |
 | --------------| ------ | ----------- |
-| nickname      | string | null: false |
-| email_address | string | null: false |
+| nickname      | string | unique: true|
+| email_address | string | unique: true|
 | password      | string | null: false |
 | first_name    | string | null: false |
 | family_name   | string | null: false |
@@ -26,7 +26,7 @@
 | house_number  | string  | null: false |
 | building      | string  |             |
 | phone_number  | integer | null: false |
-| user_id       | integer | null: false |
+| user_id       | integer | foreign_key: true |
 
 ### Association
 
@@ -47,7 +47,7 @@
 | days_to_shipping | integer | null: false |
 | value            | integer | null: false |
 | sale_condition   | integer | null: false |
-| user_id          | integer | null: false |
+| user_id          | integer | foreign_key: true |
 
 ### Association
 
