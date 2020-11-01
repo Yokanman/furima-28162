@@ -2,14 +2,16 @@
 
 ## users テーブル
 
-| Column        | Type   | Options     |
-| --------------| ------ | ----------- |
-| nickname      | string | unique: true|
-| email_address | string | unique: true|
-| password      | string | null: false |
-| first_name    | string | null: false |
-| family_name   | string | null: false |
-| birth_day     | string | null: false |
+| Column              | Type   | Options     |
+| --------------------| ------ | ----------- |
+| nickname            | string | unique: true|
+| email_address       | string | unique: true|
+| password            | string | null: false |
+| first_name          | string | null: false |
+| family_name         | string | null: false |
+| first_name_kana     | string | null: false |
+| family_name_kana    | string | null: false |
+| birth_day           | date   | null: false |
 
 ### Association
 
@@ -26,7 +28,7 @@
 | house_number  | string  | null: false |
 | building      | string  |             |
 | phone_number  | integer | null: false |
-| user_id       | integer | foreign_key: true |
+| user_id       | integer | null: false |
 
 ### Association
 
@@ -37,9 +39,8 @@
 
 | Column           | Type    | Options     |
 | -----------------| ------- | ----------- |
-| image            | string  | null: false |
 | item_name        | string  | null: false |
-| item_description | string  | null: false |
+| item_description | text    | null: false |
 | category         | integer | null: false |
 | item_condition   | integer | null: false |
 | shipping_charger | integer | null: false |
@@ -47,7 +48,7 @@
 | days_to_shipping | integer | null: false |
 | value            | integer | null: false |
 | sale_condition   | integer | null: false |
-| user_id          | integer | foreign_key: true |
+| user_id          | integer | null: false |
 
 ### Association
 
