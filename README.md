@@ -15,7 +15,6 @@
 
 ### Association
 
-- has_one :user_address
 - has_many :users_purchase_logs
 - has_many :items
 
