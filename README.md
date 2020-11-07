@@ -32,7 +32,7 @@
 
 ### Association
 
-- has_one :users_purchase_log
+- belongs_to :users_purchase_log
 
 ## items テーブル
 
@@ -66,5 +66,5 @@
 ### Association
 
 - belongs_to :user
-- has_one :item
+- belongs_to :item
 - has_one :user_address
