@@ -4,8 +4,8 @@
 
 | Column              | Type   | Options     |
 | --------------------| ------ | ----------- |
-| nickname            | string | unique: true|
-| email               | string | unique: true|
+| nickname            | string | null: false, unique: true|
+| email               | string | null: false, unique: true|
 | encrypted_password  | string | null: false |
 | first_name          | string | null: false |
 | family_name         | string | null: false |
