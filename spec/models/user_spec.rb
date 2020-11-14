@@ -51,5 +51,50 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
+    it 'first_nameが空の場合登録できない' do
+      @user.first_name = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name 全角文字で入力してください")
+    end
+    it 'first_nameが全角で入力されていない場合登録できない' do
+      @user.first_name = "aaa"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name 全角文字で入力してください")
+    end
+    it 'family_nameが空の場合登録できない' do
+      @user.family_name = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name 全角文字で入力してください")
+    end
+    it 'family_nameが全角で入力されていない場合登録できない' do
+      @user.family_name = "aaa"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name 全角文字で入力してください")
+    end
+    it 'first_name_kanaが空の場合登録できない' do
+      @user.first_name_kana = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name kana 全角カタカナで入力してください")
+    end
+    it 'first_name_kanaが全角(カタカナ)で入力されていない場合登録できない' do
+      @user.first_name_kana = "あ朝"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name kana 全角カタカナで入力してください")
+    end
+    it 'family_name_kanaが空の場合登録できない' do
+      @user.family_name_kana = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name kana 全角カタカナで入力してください")
+    end
+    it 'family_name_kanaが全角(カタカナ)で入力されていない場合登録できない' do
+      @user.family_name_kana = "あ朝"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name kana 全角カタカナで入力してください")
+    end
+    it 'birth_dayが空の場合登録できない' do
+      @user.birth_day = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Birth day can't be blank")
+    end
   end
 end
