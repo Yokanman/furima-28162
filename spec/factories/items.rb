@@ -8,8 +8,8 @@ FactoryBot.define do
     shipping_charger_id      { '2' }
     shipping_from_id         { '2' }
     days_to_shipping_id      { '2' }
-    value                 { '300' }
-    association  :user
+    value { '300' }
+    association :user
     # association  :category
     # association  :condition
     # association  :shipping_charger
