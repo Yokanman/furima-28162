@@ -8,4 +8,4 @@ function item (){
       addProfitDom.innerHTML = Math.ceil(inputValue-inputValue*0.1)
   });
 }
-window.addEventListener('load', item);
+setInterval(item, 1000);
