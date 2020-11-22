@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    # image                 { ActionDispatch::Http::UploadedFile:0x00007f901586b198 @tempfile=#<Tempfile:/var/folders/8l/kz6cq8ls77x_0y8pj997dyd00000gn/T/RackMultipart20201122-50882-1qtxsvi.jpg>, @original_filename="mouseover-zoomup-image.jpg"}
+    # image                 { 'ynaz7dfd4oooer2ea5sdvoonpua1'}
     name                  { 'cup' }
     description           { 'コップです' }
     category_id              { '2' }
@@ -9,6 +9,11 @@ FactoryBot.define do
     shipping_from_id         { '2' }
     days_to_shipping_id      { '2' }
     value                 { '300' }
-    user_id               { '1' }
+    association  :user
+    # association  :category
+    # association  :condition
+    # association  :shipping_charger
+    # association  :shipping_from
+    # association  :days_to_shipping
   end
 end
