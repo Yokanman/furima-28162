@@ -5,8 +5,7 @@ RSpec.describe Item, type: :model do
     @item = FactoryBot.build(:item)
     @item.image = fixture_file_upload('public/images/test_image.jpg')
   end
-
-  describe '商品の出品' do
+  context '商品が出品できない時' do
     it '画像が空だと出品できない' do
       @item.image = nil
       @item.valid?
@@ -22,28 +21,28 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Description can't be blank")
     end
-    it 'カテゴリーが選択されていないと出品できない' do
-      @item.category = nil
+    it 'カテゴリーが選択されていない(--)と出品できない' do
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Category 項目を選択して下さい')
     end
-    it '商品の状態が選択されていないと出品できない' do
-      @item.condition = nil
+    it '商品の状態が選択されていない(--)と出品できない' do
+      @item.condition_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Condition 項目を選択して下さい')
     end
-    it '配送料の負担が選択されていないと出品できない' do
-      @item.shipping_charger = nil
+    it '配送料の負担が選択されていない(--)と出品できない' do
+      @item.shipping_charger_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipping charger 項目を選択して下さい')
     end
-    it '配送元の地域が選択されていないと出品できない' do
-      @item.shipping_from = nil
+    it '配送元の地域が選択されていない(--)と出品できない' do
+      @item.shipping_from_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipping from 項目を選択して下さい')
     end
-    it '配送までの日数が選択されていないと出品できない' do
-      @item.days_to_shipping = nil
+    it '配送までの日数が選択されていない(--)と出品できない' do
+      @item.days_to_shipping_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Days to shipping 項目を選択して下さい')
     end
@@ -66,6 +65,11 @@ RSpec.describe Item, type: :model do
       @item.value = '１０００'
       @item.valid?
       expect(@item.errors.full_messages).to include('Value 半角数字で入力して下さい')
+    end  
+  end
+  context '商品が出品できる時' do
+    it '商品のデータが全て存在している場合は出品できる' do
+      expect(@item).to be_valid
     end
   end
 end
