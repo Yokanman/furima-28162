@@ -65,7 +65,7 @@ RSpec.describe Item, type: :model do
       @item.value = '１０００'
       @item.valid?
       expect(@item.errors.full_messages).to include('Value 半角数字で入力して下さい')
-    end  
+    end
   end
   context '商品が出品できる時' do
     it '商品のデータが全て存在している場合は出品できる' do
