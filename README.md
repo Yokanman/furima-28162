@@ -15,7 +15,7 @@
 
 ### Association
 
-- has_many :users_purchase_logs
+- has_many :orders
 - has_many :items
 
 ## user_addresses テーブル
@@ -32,7 +32,7 @@
 
 ### Association
 
-- belongs_to :users_purchase_log
+- belongs_to :order
 
 ## items テーブル
 
@@ -51,11 +51,11 @@
 
 ### Association
 
-- has one :users_purchase_log
+- has one :order
 - belongs_to :user
 
 
-## users_purchase_logs テーブル
+## orders テーブル
 
 | Column          | Type       | Options     |
 | ----------------| -----------| ----------- |
