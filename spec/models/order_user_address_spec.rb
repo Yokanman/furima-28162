@@ -12,8 +12,14 @@ RSpec.describe OrderUserAddress, type: :model do
     end
   end
   context '商品が出品できる時' do
+
     it '商品のデータが全て存在している場合は出品できる' do
       expect(@item).to be_valid
     end
+
+    it 'valueとtokenがあれば保存できること' do
+      expect(@order_user_address).to be_valid
+    end
+
   end
 end

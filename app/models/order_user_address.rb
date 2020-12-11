@@ -11,6 +11,7 @@ class OrderUserAddress
     validates :house_number
     # validates :building
     validates :phone_number, format: { with: /\A\d+\d\z/i, message: '半角数字で入力して下さい' }
+    validates :token
 
 
 
