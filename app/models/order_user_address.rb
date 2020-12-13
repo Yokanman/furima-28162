@@ -9,7 +9,6 @@ class OrderUserAddress
     validates :prefecture_id, numericality: { other_than: 0, message: '項目を選択して下さい' }
     validates :city
     validates :house_number
-    # validates :building
     validates :phone_number, format: { with: /\A\d+\d\z/i, message: '半角数字で、ハイフン無しで入力して下さい' },
                              length: { maximum: 11, message: 'is invalid Input less than 11 charactors.' }
     validates :token
