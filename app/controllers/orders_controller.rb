@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
 
   def create
     @order_user_address = OrderUserAddress.new(order_params)
+    binding.pry
     if @order_user_address.valid?
       pay_item
       @order_user_address.save
